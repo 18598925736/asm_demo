@@ -25,13 +25,13 @@ public class LifecycleClassVisitor extends ClassVisitor {
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         System.out.println("ClassVisitor visitMethod name---" + name +
                 " ,superName----" + superName);
-        MethodVisitor mv = cv.visitMethod(access, name, descriptor, signature, exceptions);
+        MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);
 
         if (superName.equals("android/support/v7/app/AppCompatActivity")
                 || superName.equals("androidx/appcompat/app/AppCompatActivity")
         ) {
             if (name.startsWith("onCreate")) {
-                return new LifecycleMethodVisitor(mv, className, name);
+                return new OnCreateMethodVisitor(mv, className, name);
             }
         }
 

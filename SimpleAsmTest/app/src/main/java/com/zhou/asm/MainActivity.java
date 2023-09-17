@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("ActivityTag", "MainActivity-> onCreate");
+        Log.d("ActivityTag", "原逻辑-MainActivity-> onCreate");
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.btn_jump).setOnClickListener(v -> {
@@ -22,5 +22,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         });
     }
-
 }
